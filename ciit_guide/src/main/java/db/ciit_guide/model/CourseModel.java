@@ -14,6 +14,9 @@ public class CourseModel {
 	@OneToMany(mappedBy ="tblcourse", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Set<ModuleModel> modules;
 
+	//The second best way is to define a bidirectional association with a @OneToMany annotation on the parent side of the relationship 
+	//and a @ManyToOne annotation on the child side of the relationship.
+
 	public CourseModel() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -26,9 +29,7 @@ public class CourseModel {
 		this.course_id = course_id;
 		this.course_name = course_name;
 	}
-
-
-
+	
 	public CourseModel(int course_id, String course_name, Set<ModuleModel> modules) {
 		super();
 		this.course_id = course_id;

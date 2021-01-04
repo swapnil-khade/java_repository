@@ -23,6 +23,15 @@ public class BasicController {
 		return "welcome!";
 	}
 	
+	@GetMapping("/exception")
+	public void retriveUser()
+	{
+		throw new UserNotFoundException("Exception for id:");
+		//int a=10,b=0,c;
+		//c=a/b;
+		
+	}
+	
 	@GetMapping("/states")
 	public List<StateModel> getStates(){
 		return so.getStates();

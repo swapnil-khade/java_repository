@@ -13,7 +13,9 @@ public class ModuleModel  {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "course_id", nullable = false)
 	private CourseModel tblcourse;
-
+	
+	// the best way to model a one-to-many relationship is to use just @ManyToOne annotation on the child entity.
+	
 	public ModuleModel() {
 		super();
 		// TODO Auto-generated constructor stub
