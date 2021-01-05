@@ -25,5 +25,4 @@ public class CityOperation implements ICityRepository {
 		q.execute();
 		return q.getResultList();
 	}
-
 }
