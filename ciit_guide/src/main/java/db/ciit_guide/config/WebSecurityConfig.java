@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //		.and().exceptionHandling().accessDeniedPage("/403");
 		
 		httpSecurity.csrf().disable()
-				.authorizeRequests().antMatchers("/authenticate", "/register","/demo","/exception").permitAll()
+				.authorizeRequests().antMatchers("/authenticate", "/states","/register","/demo","/exception").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

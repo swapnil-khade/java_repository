@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import db.multimedia.model.ImgModel;
 import db.multimedia.repository.ImgRepository;
+import db.multimedia.service.ImgService;
+
 import java.util.*;
 
 @RestController
@@ -14,6 +16,9 @@ public class ImgController {
 	
 	@Autowired
 	ImgRepository irepo;
+	
+	@Autowired
+	private ImgService imgService;
 	
 	@GetMapping("/demo")
 	public String display() {
@@ -32,8 +37,8 @@ public class ImgController {
 		return "success";
 	}
 	
-	@GetMapping("/display")
-	public List<ImgModel> getImages(){
-		return (List<ImgModel>)irepo.findAll();
+	@GetMapping("/display/{pageNo}/{pageSize}")
+	public List<ImgModel> getImages(@PathVariable int pageNo, @PathVariable int pageSize){
+		return imgService.getImages(pageNo, pageSize);
 	}
 }

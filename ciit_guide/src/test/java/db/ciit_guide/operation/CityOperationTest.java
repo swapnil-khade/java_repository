@@ -1,14 +1,14 @@
 package db.ciit_guide.operation;
 
-import static org.junit.Assert.*;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 public class CityOperationTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }

@@ -1,6 +1,7 @@
 package db.ciit_guide.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
@@ -9,7 +10,7 @@ import db.ciit_guide.operation.*;
 
 @RestController
 @CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST}, allowedHeaders = "*")
-public class BasicController {
+public class BasicController implements ErrorController {
 	
 	@Autowired
 	StateOperation so;
@@ -18,6 +19,16 @@ public class BasicController {
 	@Autowired
 	CandidateTypeOperation cto;
 		
+	private final static String path="/error";
+
+	@RequestMapping(path)
+	@ResponseBody
+	@Override
+	public String getErrorPath() {
+		// TODO Auto-generated method stub
+		return "Path not found!";
+	}
+	
 	@GetMapping("/demo")
 	public String demo() {
 		return "welcome!";
@@ -46,6 +57,7 @@ public class BasicController {
 	public List<CandidateTypeModel> getCandidatetype(){
 		return cto.getCandidateType("select", 0, "na");
 	}
+
 	
 	
 	
